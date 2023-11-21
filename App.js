@@ -6,6 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Colors from "./constants/colors";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import { StatusBar } from "expo-status-bar";
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
@@ -62,19 +63,22 @@ export default function App() {
   }
 
   return (
-    <LinearGradient
-      colors={[Colors.primary700, Colors.accent500]}
-      style={styles.app}
-    >
-      <ImageBackground
-        source={require("./assets/images/tim-head.png")}
-        resizeMode="cover"
+    <>
+      <StatusBar style="light" />
+      <LinearGradient
+        colors={[Colors.primary700, Colors.accent500]}
         style={styles.app}
-        imageStyle={styles.imageBackground}
       >
-        <SafeAreaView style={styles.app}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./assets/images/tim-head.png")}
+          resizeMode="cover"
+          style={styles.app}
+          imageStyle={styles.imageBackground}
+        >
+          <SafeAreaView style={styles.app}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
